@@ -20,8 +20,6 @@ function ClientDashboard() {
     fetchAppointments();
   };
 
-  
-
   const handleUpdateStatus = async (id, newStatus) => {
     try {
       const apptRef = doc(db, 'appointments', id);
