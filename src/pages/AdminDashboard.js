@@ -2,31 +2,63 @@ import React, { useState } from 'react';
 import './AdminDashboard.css';
 import { collection, getDocs, setDoc, doc, deleteDoc, query, where } from 'firebase/firestore';
 import { db } from '../firebase';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../firebase';
 
 function AdminDashboard() {
   const [activeTab, setActiveTab] = useState('users');
   const [users, setUsers] = useState([]);
   const [appointments, setAppointments] = useState([]);
 
+  const [showForm, setShowForm] = useState(false);
+  const [newUser, setNewUser] = useState({
+    username: '',
+    password: '',
+    role: 'user',
+    name: '',
+    email: '',
+    country: 'Vietnam',
+  });
+
+  const handleFormChange = (e) => {
+    setNewUser({ ...newUser, [e.target.name]: e.target.value });
+  };
+
+  const submitNewUser = async () => {
+    try {
+      const userCred = await createUserWithEmailAndPassword(auth, newUser.email, newUser.password);
+      const uid = userCred.user.uid;
+  
+      await setDoc(doc(db, 'users', uid), {
+        username: newUser.username,
+        name: newUser.name,
+        email: newUser.email,
+        country: newUser.country,
+        role: newUser.role,
+      });
+  
+      alert('✅ User created!');
+      setShowForm(false);
+      setNewUser({
+        username: '',
+        password: '',
+        role: 'user',
+        name: '',
+        email: '',
+        country: 'Vietnam',
+      });
+      fetchAllUsers();
+    } catch (err) {
+      console.error(err);
+      alert('❌ Failed to create user: ' + err.message);
+    }
+  };
 
   // --- USERS ---
   const fetchAllUsers = async () => {
     const snapshot = await getDocs(collection(db, 'users'));
     const userList = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
     setUsers(userList); // ✅ update state
-  };
-
-  const addNewUser = async () => {
-    const uid = prompt('Enter new UID manually:');
-    if (!uid) return;
-    await setDoc(doc(db, 'users', uid), {
-      name: 'New User',
-      email: 'newuser@example.com',
-      role: 'user',
-      country: 'Vietnam',
-    });
-    alert('User added');
-    fetchAllUsers(); // refresh list
   };
 
   const deleteUser = async () => {
@@ -66,6 +98,12 @@ function AdminDashboard() {
     alert(`Users: ${users}, Clients: ${clients}`);
   };
 
+  const roleLabel = {
+    display: 'inline-block',
+    marginRight: '15px',
+    fontWeight: '500',
+  };
+
   return (
     <div className="admin-container">
       <h1>🛠️ Admin Dashboard</h1>
@@ -83,7 +121,7 @@ function AdminDashboard() {
           <div>
             <h2>Users & Clients</h2>
             <button onClick={fetchAllUsers}>View All Accounts</button>
-            <button onClick={addNewUser}>Add New User</button>
+            <button onClick={() => setShowForm(true)}>Add New User</button>
             <button onClick={deleteUser}>Delete User</button>
 
             {/* Display Users */}
@@ -155,6 +193,62 @@ function AdminDashboard() {
           </div>
         )}
       </div>
+      {showForm && (
+        <div className="popup-form">
+          <div className="form-box">
+            <h3>Create New User</h3>
+
+            <input name="username" placeholder="Username" onChange={handleFormChange} value={newUser.username} />
+            <input name="password" type="password" placeholder="Password" onChange={handleFormChange} value={newUser.password} />
+            <input name="name" placeholder="Full Name" onChange={handleFormChange} value={newUser.name} />
+            <input name="email" type="email" placeholder="Email" onChange={handleFormChange} value={newUser.email} />
+            
+            <select name="country" onChange={handleFormChange} value={newUser.country}>
+              <option value="Vietnam">Vietnam</option>
+              <option value="USA">USA</option>
+              <option value="Japan">Japan</option>
+            </select>
+
+            <div style={{ marginTop: '1rem' }}>
+              <label style={roleLabel}>
+                <input
+                  type="radio"
+                  name="role"
+                  value="user"
+                  checked={newUser.role === 'user'}
+                  onChange={handleFormChange}
+                />
+                User
+              </label>
+              <label style={roleLabel}>
+                <input
+                  type="radio"
+                  name="role"
+                  value="client"
+                  checked={newUser.role === 'client'}
+                  onChange={handleFormChange}
+                />
+                Client
+              </label>
+              <label style={roleLabel}>
+                <input
+                  type="radio"
+                  name="role"
+                  value="admin"
+                  checked={newUser.role === 'admin'}
+                  onChange={handleFormChange}
+                />
+                Admin
+              </label>
+            </div>
+
+            <div style={{ marginTop: '1rem' }}>
+              <button onClick={submitNewUser}>Create</button>
+              <button onClick={() => setShowForm(false)} style={{ marginLeft: '10px' }}>Cancel</button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
