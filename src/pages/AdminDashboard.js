@@ -9,6 +9,7 @@ function AdminDashboard() {
   const [activeTab, setActiveTab] = useState('users');
   const [users, setUsers] = useState([]);
   const [appointments, setAppointments] = useState([]);
+  const [editingUser, setEditingUser] = useState(null);
 
   const [showForm, setShowForm] = useState(false);
   const [newUser, setNewUser] = useState({
@@ -19,6 +20,11 @@ function AdminDashboard() {
     email: '',
     country: 'Vietnam',
   });
+
+  const handleEditClick = (user) => {
+    setEditingUser({ ...user });
+  };
+  
 
   const handleFormChange = (e) => {
     setNewUser({ ...newUser, [e.target.name]: e.target.value });
@@ -60,6 +66,28 @@ function AdminDashboard() {
     const userList = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
     setUsers(userList); // ✅ update state
   };
+
+  const submitUpdateUser = async () => {
+    if (!editingUser?.id) return;
+  
+    try {
+      const userRef = doc(db, 'users', editingUser.id);
+      await setDoc(userRef, {
+        name: editingUser.name,
+        email: editingUser.email,
+        country: editingUser.country,
+        role: editingUser.role,
+        username: editingUser.username || "", // optional field
+      });
+      alert('✅ User updated!');
+      setEditingUser(null);
+      fetchAllUsers();
+    } catch (err) {
+      console.error(err);
+      alert('❌ Failed to update user: ' + err.message);
+    }
+  };
+  
 
   const deleteUser = async () => {
     const uid = prompt('Enter UID to delete:');
@@ -134,6 +162,7 @@ function AdminDashboard() {
                     <th style={th}>Email</th>
                     <th style={th}>Role</th>
                     <th style={th}>Country</th>
+                    <th style={th}>Action</th> 
                   </tr>
                 </thead>
                 <tbody>
@@ -144,6 +173,10 @@ function AdminDashboard() {
                       <td style={td}>{user.email}</td>
                       <td style={td}>{user.role}</td>
                       <td style={td}>{user.country}</td>
+                      <td style={td}>
+                        <button onClick={() => handleEditClick(user)} style={{ marginTop: '5px' }}>Edit</button>
+                      </td>
+
                     </tr>
                   ))}
                 </tbody>
@@ -245,6 +278,76 @@ function AdminDashboard() {
             <div style={{ marginTop: '1rem' }}>
               <button onClick={submitNewUser}>Create</button>
               <button onClick={() => setShowForm(false)} style={{ marginLeft: '10px' }}>Cancel</button>
+            </div>
+          </div>
+        </div>
+      )}
+      {editingUser && (
+        <div className="popup-form">
+          <div className="form-box">
+            <h3>Edit User</h3>
+
+            <input
+              name="name"
+              placeholder="Full Name"
+              value={editingUser.name}
+              onChange={(e) => setEditingUser({ ...editingUser, name: e.target.value })}
+            />
+            <input
+              name="email"
+              placeholder="Email"
+              value={editingUser.email}
+              onChange={(e) => setEditingUser({ ...editingUser, email: e.target.value })}
+            />
+
+            <select
+              name="country"
+              value={editingUser.country}
+              onChange={(e) => setEditingUser({ ...editingUser, country: e.target.value })}
+            >
+              <option value="Vietnam">Vietnam</option>
+              <option value="USA">USA</option>
+              <option value="Japan">Japan</option>
+            </select>
+
+            <div style={{ marginTop: '1rem' }}>
+              <label style={roleLabel}>
+                <input
+                  type="radio"
+                  name="role"
+                  value="user"
+                  checked={editingUser.role === 'user'}
+                  onChange={(e) => setEditingUser({ ...editingUser, role: e.target.value })}
+                />
+                User
+              </label>
+              <label style={roleLabel}>
+                <input
+                  type="radio"
+                  name="role"
+                  value="client"
+                  checked={editingUser.role === 'client'}
+                  onChange={(e) => setEditingUser({ ...editingUser, role: e.target.value })}
+                />
+                Client
+              </label>
+              <label style={roleLabel}>
+                <input
+                  type="radio"
+                  name="role"
+                  value="admin"
+                  checked={editingUser.role === 'admin'}
+                  onChange={(e) => setEditingUser({ ...editingUser, role: e.target.value })}
+                />
+                Admin
+              </label>
+            </div>
+
+            <div style={{ marginTop: '1rem' }}>
+              <button onClick={submitUpdateUser}>Update</button>
+              <button onClick={() => setEditingUser(null)} style={{ marginLeft: '10px' }}>
+                Cancel
+              </button>
             </div>
           </div>
         </div>

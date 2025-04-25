@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { db, auth } from '../firebase';
 import {
   collection,
-  getDocs,
   deleteDoc,
   doc,
   updateDoc,
   query,
   where
 } from 'firebase/firestore';
+import { onSnapshot } from 'firebase/firestore';
 
 function ClientDashboard() {
   const [appointments, setAppointments] = useState([]);
@@ -16,33 +16,25 @@ function ClientDashboard() {
   const [loading, setLoading] = useState(true);
 
   // 🔄 Load appointments for current client
-  const fetchAppointments = async () => {
-    try {
-      setLoading(true);
-      const uid = auth.currentUser.uid;
-      const q = query(collection(db, 'appointments'), where('clientId', '==', uid));
-      const snapshot = await getDocs(q);
+  const fetchAppointments = () => {
+    const uid = auth.currentUser.uid;
+    const q = query(collection(db, 'appointments'), where('clientId', '==', uid));
+    return onSnapshot(q, (snapshot) => {
       const data = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
       setAppointments(data);
-    } catch (err) {
-      console.error('Error fetching appointments:', err);
-    } finally {
       setLoading(false);
-    }
+    });
   };
 
   // 🔄 Fetch all users to map userId -> name
-  const fetchUsers = async () => {
-    try {
-      const snapshot = await getDocs(collection(db, 'users'));
+  const fetchUsers = () => {
+    return onSnapshot(collection(db, 'users'), (snapshot) => {
       const map = {};
       snapshot.forEach(doc => {
         map[doc.id] = doc.data().name || doc.data().email || 'Unknown';
       });
       setUserMap(map);
-    } catch (err) {
-      console.error('Error fetching users:', err);
-    }
+    });
   };
 
   const handleDelete = async (id) => {
@@ -68,8 +60,13 @@ function ClientDashboard() {
   };
 
   useEffect(() => {
-    fetchUsers();
-    fetchAppointments();
+    const unsubUsers = fetchUsers();
+    const unsubAppointments = fetchAppointments();
+  
+    return () => {
+      unsubUsers();
+      unsubAppointments();
+    };
   }, []);
 
   return (
