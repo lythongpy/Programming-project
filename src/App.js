@@ -2,23 +2,29 @@ import React, { useEffect, useState } from 'react';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from './firebase/firebase';
 import AppRoutes from './routes/AppRoute';
+import { BrowserRouter } from 'react-router-dom';
 
 function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, () => {
-      setLoading(false); 
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      console.log('User state:', user);
+      setLoading(false);
     });
 
-    return () => unsubscribe(); 
+    return () => unsubscribe();
   }, []);
 
   if (loading) {
     return <div style={{ padding: 40 }}>Loading...</div>;
   }
 
-  return <AppRoutes />;
+  return (
+    <BrowserRouter>
+      <AppRoutes />
+    </BrowserRouter>
+  );
 }
 
 export default App;

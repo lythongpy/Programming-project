@@ -1,0 +1,14 @@
+/* index.css or App.css */
+:root {
+  --font-family: 'Roboto Mono', monospace;
+  --text-color: #666851;
+  --bg-color: #ece7dc;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family);
+  color: var(--text-color);
+  background-color: var(--bg-color);
+}
