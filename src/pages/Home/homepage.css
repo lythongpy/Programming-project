@@ -1,0 +1,335 @@
+/* homepage.css - styles specifically for MainHomepage */
+body {
+  font-family: 'Inter', sans-serif !important;
+  background-color: #f4f0e8 !important;
+}
+
+
+:root {
+  --font-family: 'Roboto Mono', monospace;
+  --text-color: #666851;
+  --bg-color: #ece7dc;
+}
+
+body {
+  font-family: var(--font-family);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  background: var(--bg-color);
+}
+
+.main-homepage {
+  max-width: 1665px;
+  margin: 0 auto;
+  background-color: var(--bg-color);
+  padding: 0;
+  font-family: var(--font-family);
+  color: var(--text-color);
+}
+
+/* Navbar like About Us */
+.logo-box {
+  width: 100%;
+  background-color: #b0b3a5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 32px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  box-sizing: border-box;
+  height: 73px;
+  padding-left: 20px;
+}
+
+.logo-box .logo-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.logo-box img {
+  width: 40px;
+  height: auto;
+}
+
+.logo-box .logo-text {
+  margin-left: 16px;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: black;
+}
+
+.logo-box .auth-buttons a {
+  background-color: #666851;
+  color: #fff;
+  text-decoration: none;
+  padding: 6px 16px;
+  border-radius: 20px;
+  margin-left: 10px;
+  font-size: 1rem;
+  font-family: var(--font-family);
+}
+
+.logo-box .auth-buttons a:hover {
+  background-color: #4a4c3d;
+}
+
+/* Hero Section */
+.hero-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 40px;
+  gap: 40px;
+  padding: 0 32px;
+}
+
+.hero-left {
+  width: 610px;
+  height: 712px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-left: 150px;
+}
+
+.hero-left .hero-logo {
+  width: 401px;
+  height: 401px;
+  object-fit: contain;
+  margin-bottom: 24px;
+}
+
+.hero-left h1 {
+  font-size: 2rem;
+  margin-bottom: 12px;
+  font-weight: bold;
+}
+
+.hero-left p {
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+
+.start-btn {
+  background-color: #666851;
+  color: #fff;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1rem;
+  padding: 10px 24px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.start-btn:hover {
+  background-color: #4a4c3d;
+}
+
+.start-btn-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.no-underline {
+  text-decoration: none;
+}
+
+
+/* Calendar Box */
+.hero-calendar {
+  width: 300px;
+  height: 712px;
+  background-color: #00dbf9;
+  padding: 16px;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: var(--font-family);
+}
+
+.hero-calendar h3 {
+  font-size: 1.2rem;
+  margin-bottom: 16px;
+  color: #002244;
+}
+
+.react-calendar {
+  border: none;
+  font-family: var(--font-family);
+  width: 100%;
+  height: 500px;
+  background: #ECE7DC;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 0.9rem;
+}
+
+.calendar-fixed-width {
+  width: 800px; /* or any fixed width that matches intro section height */
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+}
+
+.calendar-wrapper {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+
+/* Features */
+.features {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  margin-top: 60px;
+  padding: 0 32px;
+}
+
+.feature {
+  background-color: #d9d9d9;
+  border-radius: 32px;
+  padding: 24px;
+  text-align: left;
+  font-size: 1.2rem;
+}
+
+/* FAQ Section */
+.faq {
+  margin-top: 60px;
+  padding: 0 32px;
+}
+
+.faq h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.faq-item {
+  margin-bottom: 24px;
+}
+
+.faq-item h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.faq-item p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.calendar-page-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 60px;
+  text-align: center;
+}
+
+.calendar-page-content h1 {
+  font-size: 2rem;
+  margin-bottom: 12px;
+}
+
+.calendar-page-content p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+.calendar-wrapper {
+  width: fit-content;
+}
+
+.confirm-btn {
+  margin-top: 16px;
+  padding: 10px 24px;
+  background-color: #666851;
+  color: white;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1rem;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.confirm-btn:hover {
+  background-color: #4a4c3d;
+}
+
+/* Increase size of day numbers */
+.react-calendar__tile {
+  height: 60px;
+  font-size: 1.1rem; /* default is around 0.9rem */
+  padding: 12px 0;
+}
+
+/* Make header (e.g., June 2025) larger */
+.react-calendar__navigation {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+/* Make weekday headers (Mon, Tue...) larger */
+.react-calendar__month-view__weekdays {
+  height: 60px;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+.react-calendar__tile--active {
+  background: #666851;
+  color: white;
+  font-weight: bold;
+}
+
+.react-calendar__tile:hover {
+  background-color: #d0d0d0;
+}
+.client-list-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 40px 32px;
+  justify-content: center;
+}
+
+.client-card {
+  background-color: #b0b3a8;
+  padding: 24px;
+  border-radius: 16px;
+  font-family: "Roboto Mono", monospace;
+  font-size: 1.2rem;
+  color: #333;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  text-align: center;
+}
+
+.client-card:hover {
+  background-color: #9ea291;
+  transform: scale(1.02);
+}
+
+.confirm-btn {
+  padding: 10px 24px;
+  background-color: #666851;
+  color: white;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1rem;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.confirm-btn:hover {
+  background-color: #4a4c3d;
+}

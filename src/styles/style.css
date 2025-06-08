@@ -1,0 +1,232 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #b0b3a5;
+  padding: 12px 32px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 40px;
+  margin-right: 16px;
+}
+.logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+.navbar-title {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+.nav-btn {
+  background-color: #666851;
+  color: #f4f1e8;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1rem;
+  padding: 8px 20px;
+  border: none;
+  border-radius: 999px;
+  margin-left: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.nav-btn:hover {
+  background-color: #4a4c3d;
+}
+
+.nav-btn:focus {
+  outline: 2px solid white;
+  outline-offset: 2px;
+}
+
+.navbar-right .nav-btn {
+  background-color: #666851;
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 6px 16px;
+  margin-left: 10px;
+  font-family: monospace;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.about-page h1 {
+  margin-top: 60px;
+  margin-left: 40px;     /* move left */
+  font-size: 2rem;
+  text-align: left;      /* ensure left alignment */
+  font-weight: bold;
+}
+
+.page-wrapper {
+  width: 100%;
+  background-color: #f4f1e8;
+  display: flex;
+  justify-content: center;
+}
+.about-page {
+  height: 1000px;
+  width: 1665px;
+  background-color: #f4f1e8;
+  padding-top: 40px;
+  margin: 0 auto;
+  overflow-y: auto;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px 40px;
+  justify-content: center;
+  padding-top: 40px;
+}
+.card-grid > *:nth-child(1),
+.card-grid > *:nth-child(2),
+.card-grid > *:nth-child(3) {
+  margin-left: 60px;
+}
+
+.card-grid > *:nth-child(4) {
+  grid-column: 2;
+  justify-self: start;          /* left-align in column 2 */
+  margin-left: -250px;           /* nudge left */
+}
+
+.card-grid > *:nth-child(5) {
+  grid-column: 3;
+  justify-self: start;          /* align to left edge */
+  margin-left: -250px;           /* stronger nudge left */
+}
+
+
+.card {
+  background-color: #d9d9d9;
+  border-radius: 32px;
+  padding: 24px;
+  width: 320px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  position: relative;
+  text-align: left;
+}
+
+.avatar {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto 16px;
+}
+
+
+.badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background-color: #666851;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+.info .name, .info .id, .info .likes, .info .quote {
+  margin-bottom: 8px;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background: #f0f0f0;
+}
+
+nav a {
+  margin: 0 10px;
+  text-decoration: none;
+}
+.footer {
+  background-color: #f4f1e8;
+  padding: 40px 20px;
+  margin-top: 60px;
+}
+
+.footer hr {
+  margin-bottom: 20px;
+  border: none;
+  border-top: 1px solid #aaa;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  text-align: left;
+}
+
+.footer-section h3 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.footer-section li {
+  margin-bottom: 8px;
+  font-family: monospace;
+}
+.footer-section a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.footer-section a:hover {
+  text-decoration: underline;
+}
+
+
+.fb-icon {
+  color: #fff;
+  background-color: #3b5998;
+  border-radius: 4px;
+  font-size: 14px;
+  padding: 4px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+.footer-btn {
+  display: inline-block;
+  margin-top: 6px;
+  padding: 6px 12px;
+  background-color: #666851;
+  color: white;
+  text-decoration: none;
+  border-radius: 20px;
+  font-family: monospace;
+  font-size: 0.95rem;
+}
+
+.footer-btn:hover {
+  background-color: #4a4c3d;
+}
+.footer-link {
+  display: block;
+  margin-top: 10px; /* space between Sign up and Login */
+  color: #666851;
+  text-decoration: none;
+  font-family: 'Roboto Mono', monospace;
+}

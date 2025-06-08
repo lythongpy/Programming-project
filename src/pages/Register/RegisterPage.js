@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import AuthService from '../../services/AuthService';
+import { Link, useNavigate } from 'react-router-dom';
+import authService from '../../services/AuthService';
+import './Register.css';
 
-function RegisterPage() {
+const RegisterPage = () => {
+  const navigate = useNavigate();
   const [form, setForm] = useState({
     name: '',
     email: '',
+    username: '',
     password: '',
-    role: 'user'
+    confirmPassword: '',
+    role: 'user',
   });
-
-  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -18,51 +20,94 @@ function RegisterPage() {
 
   const handleRegister = async (e) => {
     e.preventDefault();
+
+    if (form.password !== form.confirmPassword) {
+      alert('Passwords do not match.');
+      return;
+    }
+
     try {
-      await AuthService.register(form);
-      alert('Registration successful!');
-      navigate('/login');
-    } catch (error) {
-      alert('Registration failed: ' + error.message);
+      await authService.register({
+        name: form.name,
+        email: form.email,
+        username: form.username,
+        password: form.password,
+        role: form.role,
+      });
+      alert('Registration successful');
+      navigate(`/dashboard/${form.role}`);
+    } catch (err) {
+      alert('Registration failed: ' + err.message);
     }
   };
 
   return (
-    <div style={{ maxWidth: 400, margin: 'auto', paddingTop: 50 }}>
-      <h2>Register</h2>
-      <form onSubmit={handleRegister}>
+    <div className="login-page">
+      <header className="login-header">
+        <Link to="/" className="login-logo-link">
+          <img src="/image/img_logo.svg" alt="Logo" className="login-logo" />
+        </Link>
+        <span className="navbar-title">Appointment Scheduler</span>
+      </header>
+
+      <form className="login-box" onSubmit={handleRegister}>
         <input
+          type="text"
           name="name"
+          placeholder="Full Name*"
+          className="login-input"
           value={form.name}
           onChange={handleChange}
-          placeholder="Name"
           required
-        /><br /><br />
+        />
         <input
+          type="email"
           name="email"
+          placeholder="Mail*"
+          className="login-input"
           value={form.email}
           onChange={handleChange}
-          placeholder="Email"
-          type="email"
           required
-        /><br /><br />
+        />
         <input
+          type="text"
+          name="username"
+          placeholder="Username*"
+          className="login-input"
+          value={form.username}
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="password"
           name="password"
+          placeholder="Password*"
+          className="login-input"
           value={form.password}
           onChange={handleChange}
-          placeholder="Password"
-          type="password"
           required
-        /><br /><br />
-        <select name="role" value={form.role} onChange={handleChange}>
-          <option value="user">User</option>
-          <option value="client">Client</option>
-          <option value="admin">Admin</option>
-        </select><br /><br />
-        <button type="submit">Register</button>
+        />
+        <input
+          type="password"
+          name="confirmPassword"
+          placeholder="Confirm Password*"
+          className="login-input"
+          value={form.confirmPassword}
+          onChange={handleChange}
+          required
+        />
+        <input type="hidden" name="role" value="user" />
+
+        <button className="login-btn" type="submit" style={{ marginTop: "0.5px", width: "400px" }}>
+          Create Account
+        </button>
+
+        <Link to="/login" className="login-btn" style={{ marginTop: "10px", textAlign: "center", width: "150px" }}>
+          Back
+        </Link>
       </form>
     </div>
   );
-}
+};
 
-export default RegisterPage
+export default RegisterPage;
