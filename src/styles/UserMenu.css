@@ -1,0 +1,53 @@
+.user-menu-container {
+  position: relative;
+  width: 247px;
+  height: 73px;
+  font-family: "Roboto Mono", monospace;
+}
+
+.user-menu-button {
+  all: unset;
+  background-color: #b0b3a8;
+  color: #5b5d47;
+  font-size: 28px;
+  padding: 0 20px;
+  height: 100%;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.dropdown-panel-fixed {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #b0b3a8;
+  border-radius: 0 0 10px 10px;
+  padding: 12px;
+  z-index: 1000;
+}
+
+.dropdown-panel-fixed ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown-panel-fixed li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  font-size: 1rem;
+  color: #383A14;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.dropdown-panel-fixed li:hover {
+  background-color: #a3a68f;
+  border-radius: 6px;
+}

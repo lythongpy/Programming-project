@@ -19,7 +19,7 @@ const Login = () => {
       const user = await authService.login(form);
       const role = await authService.getUserRole(user.uid);
       alert("Login successful");
-      navigate(`/dashboard/${role}`);
+      navigate(`/${role}/dashboard`);
     } catch (err) {
       alert("Login failed: " + err.message);
     }

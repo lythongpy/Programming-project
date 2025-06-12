@@ -35,7 +35,7 @@ const RegisterPage = () => {
         role: form.role,
       });
       alert('Registration successful');
-      navigate(`/dashboard/${form.role}`);
+      navigate(`/${form.role}/dashboard `);
     } catch (err) {
       alert('Registration failed: ' + err.message);
     }
