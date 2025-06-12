@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
-import './homepage.css';
+import '../../styles/homepage.css';
 import '../../styles/style.css';
 import '../../styles/styleguide.css';
 // import '../../styles/index.css'; 
@@ -22,7 +22,7 @@ const MainHomepage = () => {
             <span className="navbar-title">Appointment Scheduler</span>
           </div>
           <div className="auth-buttons">
-            <Link to="/signup">Sign up</Link>
+            <Link to="/register">Register</Link>
             <Link to="/login">Login</Link>
           </div>
         </div>
@@ -33,7 +33,7 @@ const MainHomepage = () => {
             <img className="hero-logo" src="/image/img_logo.svg" alt="Main Logo" />
             <h1>#1 online scheduling website</h1>
             <p>Book your schedule for free. Fast booking service in less than 30 seconds</p>
-            <Link to="/signup" className="start-btn no-underline">Start now</Link>
+            <Link to="/register" className="start-btn no-underline">Start now</Link>
           </div>
 
           <div className="hero-right calendar-fixed-width">
@@ -94,7 +94,7 @@ const MainHomepage = () => {
           </div>
 
           <div className="start-btn-container">
-            <Link to="/signup" className="start-btn no-underline">Start now</Link>
+            <Link to="/register" className="start-btn no-underline">Start now</Link>
           </div>
         </section>
       </div>
@@ -107,23 +107,23 @@ const MainHomepage = () => {
             <ul>
               <li>
                 <FaFacebookF className="fb-icon" />
-                <a href="https://www.facebook.com/nam.phan.280704" target="_blank">Nam</a>
+                <a href="https://www.facebook.com/nam.phan.280704" target="_blank" rel="noopener noreferrer">Nam</a>
               </li>
               <li>
                 <FaFacebookF className="fb-icon" />
-                <a href="https://www.facebook.com/tgb.1107" target="_blank">Gia Bảo</a>
+                <a href="https://www.facebook.com/tgb.1107" target="_blank" rel="noopener noreferrer">Gia Bảo</a>
               </li>
               <li>
                 <FaFacebookF className="fb-icon" />
-                <a href="https://www.facebook.com/phan.bao.633083" target="_blank">Quốc Bảo</a>
+                <a href="https://www.facebook.com/phan.bao.633083" target="_blank" rel="noopener noreferrer">Quốc Bảo</a>
               </li>
               <li>
                 <FaFacebookF className="fb-icon" />
-                <a href="https://www.facebook.com/le.ucanh.23592/" target="_blank">Đức Anh</a>
+                <a href="https://www.facebook.com/le.ucanh.23592" target="_blank" rel="noopener noreferrer">Đức Anh</a>
               </li>
               <li>
                 <FaFacebookF className="fb-icon" />
-                <a href="https://www.facebook.com/le.bao.653926" target="_blank">Vĩnh Bảo</a>
+                <a href="https://www.facebook.com/le.bao.653926" target="_blank" rel="noopener noreferrer">Vĩnh Bảo</a>
               </li>
             </ul>
           </div>
@@ -135,7 +135,7 @@ const MainHomepage = () => {
           </div>
           <div className="footer-section">
             <h3>Account</h3>
-            <Link to="/signup" className="footer-link">Sign up</Link>
+            <Link to="/register" className="footer-link">Sign up</Link>
             <Link to="/login" className="footer-link">Login</Link>
           </div>
         </div>
