@@ -6,6 +6,9 @@ import "../../styles/style.css";
 import "../../styles/styleguide.css";
 import React, { useState, useEffect, useRef } from "react";
 import { FaFacebookF } from "react-icons/fa";
+import { FaCalendarAlt, FaGlobeAmericas, FaBell, FaClock } from "react-icons/fa";
+
+
 
 const MainHomepage = () => {
   const [date, setDate] = useState(new Date());
@@ -143,22 +146,26 @@ const MainHomepage = () => {
           {/* Features Section */}
           <section ref={featureRef} className="features">
             <div className={`feature ${featuresVisible ? "animate-slide" : ""}`}>
-              <h3>Easy Scheduling</h3>
+              <h3><FaCalendarAlt className="feature-icon" /> Easy Scheduling</h3>
               <p>Streamline your booking process across all devices.</p>
             </div>
+
             <div className={`feature ${featuresVisible ? "animate-slide" : ""}`}>
-              <h3>World wide Clients</h3>
+              <h3><FaGlobeAmericas className="feature-icon" /> World wide Clients</h3>
               <p>Instant access to clients across the globe with one click.</p>
             </div>
+
             <div className={`feature ${featuresVisible ? "animate-slide" : ""}`}>
-              <h3>Automatic Reminders</h3>
+              <h3><FaBell className="feature-icon" /> Automatic Reminders</h3>
               <p>Send automatic email or SMS reminders before meetings.</p>
             </div>
+
             <div className={`feature ${featuresVisible ? "animate-slide" : ""}`}>
-              <h3>No-wait</h3>
+              <h3><FaClock className="feature-icon" /> No-wait</h3>
               <p>Fast response time thanks to high-speed hosting.</p>
             </div>
           </section>
+
 
           {/* FAQ Section */}
           <section ref={faqRef} className="faq">
@@ -198,12 +205,33 @@ const MainHomepage = () => {
           <div className="footer-section">
             <h3>Contact</h3>
             <ul>
-              <li><FaFacebookF className="fb-icon" /><a href="#">Nam</a></li>
-              <li><FaFacebookF className="fb-icon" /><a href="#">Gia Bảo</a></li>
-              <li><FaFacebookF className="fb-icon" /><a href="#">Quốc Bảo</a></li>
-              <li><FaFacebookF className="fb-icon" /><a href="#">Đức Anh</a></li>
-              <li><FaFacebookF className="fb-icon" /><a href="#">Vĩnh Bảo</a></li>
+              <li>
+                <a href="https://www.facebook.com/nam.phan.280704" target="_blank" rel="noopener noreferrer" className="fb-link">
+                  <FaFacebookF className="fb-icon" /> Nam
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/tgb.1107" target="_blank" rel="noopener noreferrer" className="fb-link">
+                  <FaFacebookF className="fb-icon" /> Gia Bảo
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/phan.bao.633083" target="_blank" rel="noopener noreferrer" className="fb-link">
+                  <FaFacebookF className="fb-icon" /> Quốc Bảo
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/le.ucanh.23592" target="_blank" rel="noopener noreferrer" className="fb-link">
+                  <FaFacebookF className="fb-icon" /> Đức Anh
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/le.bao.653926" target="_blank" rel="noopener noreferrer" className="fb-link">
+                  <FaFacebookF className="fb-icon" /> Vĩnh Bảo
+                </a>
+              </li>
             </ul>
+
           </div>
 
           <div className="footer-section">

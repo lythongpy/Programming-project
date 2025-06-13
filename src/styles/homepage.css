@@ -193,12 +193,29 @@ body {
 }
 
 .feature {
-  background-color: #d9d9d9;
   border-radius: 32px;
   padding: 24px;
   text-align: left;
   font-size: 1.2rem;
+  transition: background-color 0.3s;
 }
+
+.features .feature:nth-child(1) {
+  background-color: #d9ddd1;
+}
+
+.features .feature:nth-child(2) {
+  background-color: #d9dce1;
+}
+
+.features .feature:nth-child(3) {
+  background-color: #e1dad9;
+}
+
+.features .feature:nth-child(4) {
+  background-color: #e4e1d9;
+}
+
 
 /* FAQ Section */
 .faq {
@@ -563,4 +580,10 @@ body {
     opacity: 1;
     transform: translateY(0);
   }
+}
+.feature-icon {
+  margin-right: 10px;
+  vertical-align: middle;
+  font-size: 1.1em;
+  color: #666851;
 }

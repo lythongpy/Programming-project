@@ -307,3 +307,24 @@ nav a {
 .logo-left:hover {
   opacity: 0.85;
 }
+.fb-link {
+  display: inline-flex;         /* Ensures spacing and alignment */
+  align-items: center;
+  gap: 8px;
+  padding: 4px 8px;
+  background-color: #f0f0f0;    /* TEMP: helps you *see* the link box */
+  border-radius: 6px;
+  color: #333;
+  text-decoration: none;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.fb-link:hover {
+  background-color: #918d9e;    /* Facebook blue */
+  color: white;
+}
+
+.fb-icon {
+  font-size: 16px;
+}
+

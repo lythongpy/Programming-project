@@ -115,12 +115,33 @@ const AboutUs = () => {
                     <div className="footer-section">
                         <h3>Contact</h3>
                         <ul>
-                            <li><FaFacebookF className="fb-icon"/><a href="#">Nam</a></li>
-                            <li><FaFacebookF className="fb-icon"/><a href="#">Gia Bảo</a></li>
-                            <li><FaFacebookF className="fb-icon"/><a href="#">Quốc Bảo</a></li>
-                            <li><FaFacebookF className="fb-icon"/><a href="#">Đức Anh</a></li>
-                            <li><FaFacebookF className="fb-icon"/><a href="#">Vĩnh Bảo</a></li>
+                            <li>
+                                <a href="https://www.facebook.com/nam.phan.280704" target="_blank" rel="noopener noreferrer" className="fb-link">
+                                    <FaFacebookF className="fb-icon" /> Nam
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.facebook.com/tgb.1107" target="_blank" rel="noopener noreferrer" className="fb-link">
+                                    <FaFacebookF className="fb-icon" /> Gia Bảo
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.facebook.com/phan.bao.633083" target="_blank" rel="noopener noreferrer" className="fb-link">
+                                    <FaFacebookF className="fb-icon" /> Quốc Bảo
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.facebook.com/le.ucanh.23592" target="_blank" rel="noopener noreferrer" className="fb-link">
+                                    <FaFacebookF className="fb-icon" /> Đức Anh
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.facebook.com/le.bao.653926" target="_blank" rel="noopener noreferrer" className="fb-link">
+                                    <FaFacebookF className="fb-icon" /> Vĩnh Bảo
+                                </a>
+                            </li>
                         </ul>
+
                     </div>
 
                     <div className="footer-section">
