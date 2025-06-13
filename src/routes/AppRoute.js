@@ -21,12 +21,14 @@ import ClientAppointment from '../pages/Client/ClientAppointment';
 import UserList from '../pages/Client/UserList';
 import ClientNotification from '../pages/Client/ClientNotification';
 import ClientProfile from '../pages/Client/ClientProfile';
+import AboutUs from '../pages/Home/AboutUs';
+
 
 function AppRoutes() {
   const navigate = useNavigate();
 
   useEffect(() => {
-  const unprotectedRoutes = ['/', '/register', '/login'];
+      const unprotectedRoutes = ['/', '/register', '/login', '/AboutUs'];
   const unsubscribe = onAuthStateChanged(auth, (user) => {
     const currentPath = window.location.pathname;
     if (!user && !unprotectedRoutes.includes(currentPath)) {
@@ -37,13 +39,16 @@ function AppRoutes() {
 }, [navigate]);
 
 
-  return (
-    <Routes>
-      <Route path="/login" element={<LoginPage />} />
-      <Route path="/register" element={<RegisterPage />} />
-      <Route path="/" element={<MainHomepage />} />
+    return (
+        <Routes>
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/register" element={<RegisterPage />} />
+            <Route path="/" element={<MainHomepage />} />
+            <Route path="/AboutUs" element={<AboutUs />} />  {/* ✅ This line */}
 
-      <Route
+
+
+        <Route
         path="/user/dashboard"
         element={
           <ProtectedRoute allowedRole="user">

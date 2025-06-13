@@ -95,10 +95,10 @@ const MainHomepage = () => {
         <div className="main-homepage">
           {/* Navbar */}
           <div className="logo-box">
-            <div className="logo-left">
+            <Link to="/" className="logo-left" style={{ textDecoration: "none" }}>
               <img src="/image/img_logo.svg" alt="Logo" width={40} />
               <span className="navbar-title">Appointment Scheduler</span>
-            </div>
+            </Link>
             <div className="auth-buttons">
               <Link to="/register">Register</Link>
               <Link to="/login">Login</Link>

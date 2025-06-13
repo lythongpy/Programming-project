@@ -4,6 +4,7 @@ import { auth } from './firebase/firebase';
 import AppRoutes from './routes/AppRoute';
 import { BrowserRouter } from 'react-router-dom';
 import "./styles/index.css"
+import ScrollToTop from "./components/ScrollToTop"; // Adjust path if needed
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -22,9 +23,10 @@ function App() {
   }
 
   return (
-    <BrowserRouter>
-      <AppRoutes />
-    </BrowserRouter>
+      <BrowserRouter>
+        <ScrollToTop />   {/* ✅ Add this here */}
+        <AppRoutes />
+      </BrowserRouter>
   );
 }
 
