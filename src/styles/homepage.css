@@ -360,3 +360,99 @@ body {
 ::-webkit-scrollbar-track {
   background: transparent;
 }
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.feature.animate-slide {
+  opacity: 0;
+  animation: slideInUp 0.7s ease forwards;
+}
+
+.feature.animate-slide:nth-child(1) { animation-delay: 1s; }
+.feature.animate-slide:nth-child(2) { animation-delay: 1.3s; }
+.feature.animate-slide:nth-child(3) { animation-delay: 1.6s; }
+.feature.animate-slide:nth-child(4) { animation-delay: 1.9s; }
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fade-left {
+  opacity: 0;
+  animation: slideInLeft 0.8s ease forwards;
+}
+
+.delay-1 { animation-delay: 1.8s; }
+.delay-2 { animation-delay: 2.1s; }
+.delay-3 { animation-delay: 2.4s; }
+.delay-4 { animation-delay: 2.7s; }
+.delay-5 { animation-delay: 3s; }
+
+
+@keyframes logoFadeZoom {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.hero-logo.animate-logo {
+  animation: logoFadeZoom 1s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes fadeSlideRight {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.hero-heading,
+.hero-description,
+.start-delayed {
+  opacity: 0;
+}
+
+.hero-heading.animate-fade,
+.hero-description.animate-fade {
+  animation: fadeSlideRight 0.8s ease forwards;
+}
+
+.hero-heading.animate-fade {
+  animation-delay: 0.3s;
+}
+
+.hero-description.animate-fade {
+  animation-delay: 0.6s;
+}
+
+.start-delayed.animate-fade {
+  animation: fadeSlideRight 0.8s ease forwards;
+  animation-delay: 1.2s;
+}
+
