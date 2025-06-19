@@ -1,0 +1,589 @@
+/* homepage.css - styles specifically for MainHomepage */
+
+:root {
+  --font-family: 'Roboto Mono', monospace;
+  --text-color: #666851;
+  --bg-color: #ece7dc;
+}
+
+body {
+  font-family: var(--font-family);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  background: var(--bg-color);
+}
+
+.main-homepage {
+  max-width: 1665px;
+  margin: 0 auto;
+  background-color: var(--bg-color);
+  padding: 0;
+  font-family: var(--font-family);
+  color: var(--text-color);
+}
+
+/* Navbar like About Us */
+.logo-box {
+  width: 100%;
+  background-color: #b0b3a5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 32px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  box-sizing: border-box;
+  height: 73px;
+  padding-left: 20px;
+}
+
+.logo-box .logo-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.logo-box img {
+  width: 40px;
+  height: auto;
+}
+
+.logo-box .logo-text {
+  margin-left: 16px;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: black;
+}
+
+.logo-box .auth-buttons a {
+  background-color: #666851;
+  color: #fff;
+  text-decoration: none;
+  padding: 6px 16px;
+  border-radius: 20px;
+  margin-left: 10px;
+  font-size: 1rem;
+  font-family: var(--font-family);
+}
+
+.logo-box .auth-buttons a:hover {
+  background-color: #4a4c3d;
+}
+
+/* Hero Section */
+.hero-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 40px;
+  gap: 40px;
+  padding: 0 32px;
+}
+
+.hero-left {
+  width: 610px;
+  height: 712px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-left: 150px;
+}
+
+.hero-left .hero-logo {
+  width: 401px;
+  height: 401px;
+  object-fit: contain;
+  margin-bottom: 24px;
+}
+
+.hero-left h1 {
+  font-size: 2rem;
+  margin-bottom: 12px;
+  font-weight: bold;
+}
+
+.hero-left p {
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+
+.start-btn {
+  background-color: #666851;
+  color: #fff;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1rem;
+  padding: 10px 24px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.start-btn:hover {
+  background-color: #4a4c3d;
+}
+
+.start-btn-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.no-underline {
+  text-decoration: none;
+}
+
+
+/* Calendar Box */
+.hero-calendar {
+  width: 300px;
+  height: 712px;
+  background-color: #00dbf9;
+  padding: 16px;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: var(--font-family);
+}
+
+.hero-calendar h3 {
+  font-size: 1.2rem;
+  margin-bottom: 16px;
+  color: #002244;
+}
+
+.react-calendar {
+  border: none;
+  font-family: var(--font-family);
+  width: 100% !important;
+  max-width: 100% !important;
+  height: 500px;
+  background: #ECE7DC;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 0.9rem;
+  min-height: 500px;
+  height: auto !important;
+  transition: height 0.2s ease;
+  box-sizing: border-box;
+}
+
+.calendar-fixed-width {
+  width: 800px; /* or any fixed width that matches intro section height */
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+}
+
+.calendar-wrapper {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+
+/* Features */
+.features {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  margin-top: 60px;
+  padding: 0 32px;
+}
+
+.feature {
+  border-radius: 32px;
+  padding: 24px;
+  text-align: left;
+  font-size: 1.2rem;
+  transition: background-color 0.3s;
+}
+
+.features .feature:nth-child(1) {
+  background-color: #d9ddd1;
+}
+
+.features .feature:nth-child(2) {
+  background-color: #d9dce1;
+}
+
+.features .feature:nth-child(3) {
+  background-color: #e1dad9;
+}
+
+.features .feature:nth-child(4) {
+  background-color: #e4e1d9;
+}
+
+
+/* FAQ Section */
+.faq {
+  margin-top: 60px;
+  padding: 0 32px;
+}
+
+.faq h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.faq-item {
+  margin-bottom: 24px;
+}
+
+.faq-item h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.faq-item p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.calendar-page-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 60px;
+  text-align: center;
+}
+
+.calendar-page-content h1 {
+  font-size: 2rem;
+  margin-bottom: 12px;
+}
+
+.calendar-page-content p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+.calendar-wrapper {
+  width: fit-content;
+}
+
+.confirm-btn {
+  margin-top: 16px;
+  padding: 10px 24px;
+  background-color: #666851;
+  color: white;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1rem;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.confirm-btn:hover {
+  background-color: #4a4c3d;
+}
+
+/* Increase size of day numbers */
+.react-calendar__tile {
+  padding: 18px 0 !important;
+  height: 100px;
+  vertical-align: top;
+  font-size: 1.1rem;
+  line-height: 1.2;
+}
+.full-width-calendar {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* Make header (e.g., June 2025) larger */
+.react-calendar__navigation {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+/* Make weekday headers (Mon, Tue...) larger */
+.react-calendar__month-view__weekdays {
+  height: 60px;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+.react-calendar__month-view__days__day {
+  padding: 2px !important;
+  height: 70px !important; /* adjust if still too tall */
+  vertical-align: top;
+  font-weight: bold;
+}
+.react-calendar__tile--active {
+  background: #868a54;
+  color: white; 
+  font-weight: bold;
+}
+
+.calendar-grid-stretch {
+  width: 100% !important;
+}
+
+.react-calendar__tile:hover {
+  background-color: #d0d0d0;
+}
+.client-list-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 40px 32px;
+  justify-content: center;
+}
+
+.client-card {
+  background-color: #b0b3a8;
+  padding: 24px;
+  border-radius: 16px;
+  font-family: "Roboto Mono", monospace;
+  font-size: 1.2rem;
+  color: #333;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  text-align: center;
+}
+
+.client-card:hover {
+  background-color: #9ea291;
+  transform: scale(1.02);
+}
+
+.confirm-btn {
+  padding: 10px 24px;
+  background-color: #666851;
+  color: white;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1rem;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.confirm-btn:hover {
+  background-color: #4a4c3d;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.feature {
+  opacity: 0;               /* ✅ Hide by default */
+  transform: translateY(40px);
+  transition: none;
+}
+
+
+.feature.animate-slide {
+  animation: slideInUp 0.7s ease forwards;
+  opacity: 0;
+}
+
+.features .feature:nth-child(1).animate-slide { animation-delay: 0.3s; }
+.features .feature:nth-child(2).animate-slide { animation-delay: 0.5s; }
+.features .feature:nth-child(3).animate-slide { animation-delay: 0.7s; }
+.features .feature:nth-child(4).animate-slide { animation-delay: 0.9s; }
+
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fade-left {
+  opacity: 0;
+  animation: slideInLeft 0.8s ease-out forwards;
+}
+
+.delay-1 { animation-delay: 0.3s; }
+.delay-2 { animation-delay: 0.5s; }
+.delay-3 { animation-delay: 0.7s; }
+.delay-4 { animation-delay: 0.9s; }
+.delay-5 { animation-delay: 1.1s; }
+
+
+
+
+@keyframes logoFadeZoom {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.hero-logo.animate-logo {
+  animation: logoFadeZoom 1s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes fadeSlideRight {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.hero-heading,
+.hero-description,
+.start-delayed {
+  opacity: 0;
+}
+
+.hero-heading.animate-fade,
+.hero-description.animate-fade {
+  animation: fadeSlideRight 0.8s ease forwards;
+}
+
+.hero-heading.animate-fade {
+  animation-delay: 0.3s;
+}
+
+.hero-description.animate-fade {
+  animation-delay: 0.6s;
+}
+
+.start-delayed.animate-fade {
+  animation: fadeSlideRight 0.8s ease forwards;
+  animation-delay: 1.2s;
+}
+
+/* FAQ Section */
+.faq {
+  margin-top: 120px; /* ⬅️ ensure space between .features and .faq */
+  padding: 0 32px;
+}
+
+.faq h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.faq-item {
+  margin-bottom: 24px;
+  opacity: 0;
+  transform: translateX(-60px); /* 🔁 HERE */
+}
+
+.faq-item h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.faq-item p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.start-btn-container {
+  opacity: 0;
+  transform: translateX(-60px); /* 🔁 HERE */
+}
+.faq-item,
+.start-btn-container {
+  opacity: 0;
+  transform: translateX(-60px);
+}
+.features {
+  margin-bottom: 100px; /* ⬅️ buffer below features */
+}
+
+.footer {
+  background-color: #b0b3a5;
+  color: #333;
+  padding: 40px 60px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  font-family: 'Roboto Mono', monospace;
+  border-top: 2px solid #ccc;
+  opacity: 0;
+  transform: translateY(40px);
+}
+.footer-section {
+  flex: 1 1 200px;
+  margin-bottom: 20px;
+}
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-section li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.fb-icon {
+  font-size: 18px;
+  background: white;
+  color: #4267B2;
+  padding: 4px;
+  border-radius: 50%;
+}
+.footer-link, .footer-section a {
+  text-decoration: none;
+  color: #333;
+  transition: color 0.3s;
+}
+
+.footer-link:hover, .footer-section a:hover {
+  color: #000;
+  text-decoration: underline;
+}
+.footer.animate-footer {
+  animation: fadeInUp 1s ease forwards;
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.feature-icon {
+  margin-right: 10px;
+  vertical-align: middle;
+  font-size: 1.1em;
+  color: #666851;
+}
