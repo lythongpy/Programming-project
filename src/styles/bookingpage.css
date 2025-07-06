@@ -1,0 +1,21 @@
+/* Booking calendar specific styles */
+.booking-calendar .react-calendar__tile--selected {
+  background: #868a54 !important;
+  color: white !important;
+  font-weight: bold !important;
+  border-radius: 4px;
+}
+
+.booking-calendar .react-calendar__tile--now {
+  background: transparent !important;
+  color: inherit !important;
+}
+
+.booking-calendar .react-calendar__tile:hover,
+.booking-calendar .react-calendar__tile:enabled:hover {
+  background: transparent !important;
+}
+
+.booking-calendar .react-calendar__month-view__days__day--weekend {
+  color: inherit !important;
+}
